@@ -1,0 +1,32 @@
+@(env:String,processList:Seq[models.Process])(implicit messages: MessagesApi)
+@main {
+<table class="computers zebra-striped">
+    <tr>
+        <th>Process Id</th>
+        <th>Process Name</th>
+        <th>Process Description</th>
+        <th>Active Flag</th>
+        <th>Created at</th>
+        <th>Create user</th>
+        <th>Can restart if completed</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    @for(process <- processList) {
+    <tr>
+        <td>@process.id</td>
+        <td><a href="@routes.SlickController.getStage(env,process.id.get)">@process.process_name</a></td>
+        <td>@process.description</td>
+        <td>@process.active_flag</td>
+        <td>@process.created_at</td>
+        <td>@process.create_user</td>
+        <td>@process.can_restart_if_completed</td>
+    </tr>
+    }
+
+    </tbody>
+</table>
+}
+
+            

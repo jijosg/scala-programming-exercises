@@ -1,0 +1,31 @@
+@(env:String,stageList:Seq[models.Dependency])(implicit messages: MessagesApi)
+@main {
+<h3>Workflow Name</h3>
+<table class="computers zebra-striped">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>task_id</th>
+        <th>task_name</th>
+        <th>pred_task_id</th>
+        <th>task_command</th>
+        <th>Created date</th>
+        <th>Created user</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    @for(stage<- stageList){
+    <tr>
+        <td>@stage.id</td>
+        <td>@stage.task_id</td>
+        <td>@stage.pred_task_id</td>
+        <td>@stage.created_at</td>
+        <td>@stage.create_user</td>
+
+    </tr>
+    }
+    </tbody>
+</table>
+}
+

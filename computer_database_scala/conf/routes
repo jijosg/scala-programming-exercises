@@ -1,0 +1,14 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Default path will just redirect to the computer list
+
+
+GET     /workflow/:env                controllers.SlickController.list(env:String)
+GET     /workflow/:env/:id            controllers.SlickController.getStage(env:String,id:Int)
+#GET     /workflow/:env/task/:id       controllers.SlickController.getTask(env:String,id:Int)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
+

@@ -1,0 +1,28 @@
+@(env:String,taskList:Seq[models.Task])(implicit messages: MessagesApi)
+@main {
+<table class="computers zebra-striped">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>task_name</th>
+        <th>task_command</th>
+        <th>Created date</th>
+        <th>Created user</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    @for( task<- taskList){
+    <tr>
+        <td>@task.id</td>
+        <td>@task.task_name</td>
+        <td>@task.task_command</td>
+        <td>@task.created_at</td>
+        <td>@task.create_user</td>
+
+    </tr>
+    }
+    </tbody>
+</table>
+}
+
